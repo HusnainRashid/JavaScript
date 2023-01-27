@@ -4,11 +4,11 @@ class User {
     };
 
     getName() {
-        console.log(this.name);
+        return this.name;
     };
 
     getIntroduction() {
-        console.log(`Hi, my name is ${this.name}.`);
+        return `Hi, my name is ${this.name}.`;
     };
 }
 

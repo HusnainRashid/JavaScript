@@ -1,21 +1,37 @@
-class UserBase {
-    User = require('./user');
+const User = require('./user')
 
-    constructor(user) {
-        this.user = user;
+class UserBase {
+    constructor(names) {
+        this.names = names;
     };
 
     count() {
-        return this.user.length();
+        return this.names.length;
     };
 
-    getName() {
-        this.User.getName();
+    getNames() {
+        return this.names.map((namer) => {
+            return namer.getName();
+        });
     };
 
     getIntroduction() {
-        this.User.getIntroduction();
+        return this.names.map((namer) => {
+            return namer.getIntroduction();
+        });
     };
-}
+};
 
-module.exports = UserBase;
+const users = [
+    new User('Uma'),
+    new User('Josh'),
+    new User('Ollie')
+];
+
+const userBase = new UserBase(users);
+
+console.log(userBase.count());
+
+console.log(userBase.getNames(users));
+
+console.log(userBase.getIntroduction(users));
